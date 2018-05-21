@@ -7,3 +7,4 @@ document
     .onclick = () => service.sumItems('2143')
         .then(console.log)
         .catch(console.log);
+        
