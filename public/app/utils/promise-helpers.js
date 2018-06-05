@@ -5,9 +5,13 @@ export const log = param => {
     return param;
 }   
 
-export const timeoutPromise = (miliiseconds, promise) => {
+export const timeoutPromise = (milliseconds, promise) => {
     const timeout = new Promise((resolve, reject) => 
-        setTimeout(() => reject(`Limite da promise excedido (limite: ${miliiseconds} ms)`), miliiseconds))
+        setTimeout(() => reject(`Limite da promise excedido (limite: ${milliseconds} ms)`), milliseconds))
 
     return Promise.race([timeout, promise]);
 }
+
+export const delay = milliseconds => data => 
+    new Promise((resolve, reject) => 
+        setTimeout(() => resolve(data), milliseconds)); 
